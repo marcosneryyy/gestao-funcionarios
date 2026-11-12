@@ -1,0 +1,171 @@
+:root {
+  --fundo: #f4f6fa;
+  --cartao: #ffffff;
+  --texto: #1d2433;
+  --suave: #5b6478;
+  --borda: #dde2ec;
+  --primaria: #3056d3;
+  --primaria-escura: #2443a8;
+  --perigo: #c93636;
+  --sucesso-fundo: #e6f6ec;
+  --sucesso-texto: #1d6b3a;
+  --erro-fundo: #fdeaea;
+  --erro-texto: #9b2222;
+  --edicao: #fff6dc;
+  --raio: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+.topo {
+  background: var(--primaria);
+  color: #fff;
+  padding: 24px 16px;
+  text-align: center;
+}
+.topo h1 { margin: 0 0 4px; font-size: 1.6rem; }
+.topo p  { margin: 0; opacity: .85; }
+
+.conteudo {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  gap: 20px;
+}
+
+.cartao {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 20px;
+}
+.cartao h2 { margin: 0 0 16px; font-size: 1.2rem; }
+
+/* Formulário */
+.campos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--suave);
+}
+input {
+  font: inherit;
+  padding: 9px 11px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  color: var(--texto);
+  background: #fff;
+}
+input:focus {
+  outline: 2px solid var(--primaria);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.btn-primario { background: var(--primaria); color: #fff; }
+.btn-primario:hover { background: var(--primaria-escura); }
+.btn-secundario { background: #fff; border-color: var(--borda); color: var(--texto); }
+.btn-secundario:hover { background: var(--fundo); }
+.btn-perigo { background: #fff; border-color: #f0c4c4; color: var(--perigo); }
+.btn-perigo:hover { background: var(--erro-fundo); }
+.btn-link { background: none; color: var(--primaria); padding-inline: 4px; }
+.btn-link:hover { text-decoration: underline; }
+
+.mensagem { margin: 12px 0 0; min-height: 1.5em; font-size: .9rem; }
+.mensagem.sucesso, .mensagem.erro { padding: 8px 12px; border-radius: 8px; }
+.mensagem.sucesso { background: var(--sucesso-fundo); color: var(--sucesso-texto); }
+.mensagem.erro    { background: var(--erro-fundo);    color: var(--erro-texto); }
+
+/* Tabela */
+.cabecalho-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.cabecalho-lista h2 { margin: 0; }
+.contador { color: var(--suave); font-weight: 400; }
+#busca { min-width: 220px; }
+
+.tabela-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+th {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--suave);
+}
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr:hover { background: var(--fundo); }
+tr.em-edicao, tr.em-edicao:hover { background: var(--edicao); }
+td.acoes { display: flex; gap: 8px; }
+td.acoes .btn { padding: 5px 12px; font-size: .85rem; }
+.vazio { color: var(--suave); text-align: center; font-style: italic; }
+
+/* Relatórios */
+.relatorios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+.relatorio {
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 14px;
+}
+.relatorio h3 { margin: 0 0 4px; font-size: 1rem; }
+.relatorio code {
+  font-size: .75rem;
+  background: var(--fundo);
+  color: var(--suave);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.relatorio ul { margin: 10px 0 0; padding-left: 18px; }
+.relatorio li.vazio { list-style: none; margin-left: -18px; text-align: left; }
+.destaque {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primaria);
+  margin: 10px 0 0;
+  font-variant-numeric: tabular-nums;
+}

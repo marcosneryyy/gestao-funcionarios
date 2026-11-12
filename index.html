@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Funcionários</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Gestão de Funcionários</h1>
+    <p>Cadastre, edite, exclua e gere relatórios da equipe.</p>
+  </header>
+
+  <main class="conteudo">
+    <!-- Exercício 1 – Formulário de cadastro -->
+    <section class="cartao">
+      <h2 id="titulo-form">Cadastrar funcionário</h2>
+      <form id="form-funcionario" novalidate>
+        <div class="campos">
+          <label>
+            Nome
+            <input type="text" id="nome" placeholder="Ex.: Ana Souza" required>
+          </label>
+          <label>
+            Idade
+            <input type="number" id="idade" min="14" max="120" step="1" placeholder="Ex.: 30" required>
+          </label>
+          <label>
+            Cargo
+            <input type="text" id="cargo" placeholder="Ex.: Desenvolvedora" required>
+          </label>
+          <label>
+            Salário (R$)
+            <input type="number" id="salario" min="0" step="0.01" placeholder="Ex.: 5500" required>
+          </label>
+        </div>
+        <div class="botoes">
+          <button type="submit" id="btn-salvar" class="btn btn-primario">Cadastrar</button>
+          <button type="button" id="btn-cancelar" class="btn btn-secundario" hidden>Cancelar edição</button>
+          <button type="button" id="btn-exemplos" class="btn btn-link">Adicionar dados de exemplo</button>
+        </div>
+        <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Exercícios 1 e 2 – Listagem com editar/excluir -->
+    <section class="cartao">
+      <div class="cabecalho-lista">
+        <h2>Funcionários <span class="contador">(<span id="total">0</span>)</span></h2>
+        <input type="search" id="busca" placeholder="Buscar por nome…" aria-label="Buscar por nome">
+      </div>
+      <div class="tabela-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Idade</th>
+              <th>Cargo</th>
+              <th class="num">Salário</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exercício 4 – Relatórios -->
+    <section class="cartao">
+      <h2>Relatórios</h2>
+      <div class="relatorios">
+        <article class="relatorio">
+          <h3>Salário acima de R$ 5.000</h3>
+          <code>filter</code>
+          <ul id="rel-acima-5000"></ul>
+        </article>
+        <article class="relatorio">
+          <h3>Média salarial</h3>
+          <code>reduce</code>
+          <p id="rel-media" class="destaque">R$ 0,00</p>
+        </article>
+        <article class="relatorio">
+          <h3>Cargos únicos</h3>
+          <code>map + new Set()</code>
+          <ul id="rel-cargos"></ul>
+        </article>
+        <article class="relatorio">
+          <h3>Nomes em maiúsculo</h3>
+          <code>map</code>
+          <ul id="rel-nomes"></ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/Funcionario.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

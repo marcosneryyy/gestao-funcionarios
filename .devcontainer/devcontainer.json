@@ -1,0 +1,11 @@
+{
+  "name": "Gestão de Funcionários",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "forwardPorts": [8080],
+  "postStartCommand": "npx --yes http-server . -p 8080 -c-1",
+  "customizations": {
+    "vscode": {
+      "extensions": ["esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+    }
+  }
+}
